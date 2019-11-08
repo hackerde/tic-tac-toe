@@ -21,12 +21,12 @@ def print_board():
             end = ' \n'
             if i != 1: end+='---------\n';
         char=' '
-        if i in ('X','O'): char=i;
+        if i in ('+','-'): char=i;
         x+=1
         print(char,end=end)
         
 def select_char():
-    chars=('X','O')
+    chars=('+','-')
     if random.randint(0,1) == 0:
         return chars[::-1]
     return chars
@@ -86,7 +86,7 @@ def computer_move():
     return make_move(board, computer, move)
 
 def space_exist():
-    return board.count('X') + board.count('O') != 9
+    return board.count('+') + board.count('-') != 9
 
 player, computer = select_char()
 print('Player is [%s] and computer is [%s]' % (player, computer))
